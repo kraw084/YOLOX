@@ -12,6 +12,9 @@ import torch
 import torch.backends.cudnn as cudnn
 from torch.nn.parallel import DistributedDataParallel as DDP
 
+import sys
+sys.path.append(os.path.join(os.path.abspath(os.path.dirname(__file__)), ".."))
+
 from yolox.core import launch
 from yolox.exp import get_exp
 from yolox.utils import (

@@ -11,6 +11,8 @@ from loguru import logger
 import torch
 import torch.backends.cudnn as cudnn
 
+sys.path.append(os.path.join(os.path.abspath(os.path.dirname(__file__)), ".."))
+
 from yolox.exp import Exp, get_exp
 from yolox.core import Trainer
 from yolox.utils import configure_module, configure_omp
