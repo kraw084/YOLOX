@@ -1,0 +1,16 @@
+python tools/train.py -f exps/custom/yolox_urchin_m.py -b 16 -o -c weights/yolox_m.pth --cache ram
+
+python tools/eval.py -f exps/custom/yolox_urchin_m.py -b 16 -c weights/yolox_m.pth  --conf 0.00
+
+
+python tools/train.py -f exps/custom/yolox_urchin_m_2.py -b 8 -o -c weights/yolox_m.pth --cache ram
+
+
+python tools/eval.py -f exps/custom/yolox_urchin_m.py -b 8 -c YOLOX_outputs/yolox_urchin_m/best_ckpt.pth  --conf 0.2
+python tools/eval.py -f exps/custom/yolox_urchin_m_2.py -b 8 -c YOLOX_outputs/yolox_urchin_m_2/best_ckpt.pth  --conf 0.2
+
+
+python tools/train.py -f exps/custom/yolox_urchin_l.py -b 4 -o -c --cache ram --resume
+
+
+python tools/train.py -f exps/custom/yolox_urchin_m_helio.py -b 4 -o -c weights/yolox_m.pth --cache ram

@@ -8,18 +8,19 @@ import shutil
 input_dir = "C:/Users/kraw084/OneDrive - The University of Auckland/Desktop/Urchin-Detector/data"
 output_dir = "C:/Users/kraw084/OneDrive - The University of Auckland/Desktop"
 
-csv_path = "C:/Users/kraw084/OneDrive - The University of Auckland/Desktop/Urchin-Detector/data/csvs/High_conf_dataset_V4.csv"
+csv_path = "C:/Users/kraw084/OneDrive - The University of Auckland/Desktop/Urchin-Detector/data/csvs/High_conf_dataset_V5.csv"
 csv_file = open(csv_path, "r")
 reader = csv.DictReader(csv_file)
 csv_dataset = {int(row["id"]):row for row in reader}
 csv_file.close()
 
-txt_dir = "C:/Users/kraw084/OneDrive - The University of Auckland/Desktop/Urchin-Detector/data/datasets/full_dataset_v4"
+txt_dir = "C:/Users/kraw084/OneDrive - The University of Auckland/Desktop/Urchin-Detector/data/datasets/full_dataset_v5"
 
 
 # Define the categories for the COCO dataset
 categories = [{"id": 0, "name": "Evechinus chloroticus"},
-              {"id": 1, "name": "Centrostephanus rodgersii"}]
+              {"id": 1, "name": "Centrostephanus rodgersii"},
+              {"id": 2, "name": "Heliocidaris erythrogramma"}]
 
 
 image_dir = f"{input_dir}/images"
@@ -100,5 +101,6 @@ def create_image_dirs(dataset):
         shutil.copy("C:/Users/kraw084/OneDrive - The University of Auckland/Desktop/Urchin-Detector/" + im_file_path, output_dir + f"/{dataset}")
 
 
-#create_image_dirs("train")
-#create_image_dirs("test")
+create_image_dirs("train")
+create_image_dirs("val")
+create_image_dirs("test")
